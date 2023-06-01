@@ -1,0 +1,25 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/Test_Environment.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/MusicManager.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scripts/World.gd" type="Script" id=4]
+[ext_resource path="res://scenes/ParallaxBackground.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/PauseGame.tscn" type="PackedScene" id=6]
+
+[node name="World" type="Node2D"]
+pause_mode = 1
+script = ExtResource( 4 )
+
+[node name="player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 613, 329 )
+
+[node name="Test_Environment" parent="." instance=ExtResource( 2 )]
+position = Vector2( 648, 824 )
+
+[node name="MusicManager" parent="." instance=ExtResource( 3 )]
+position = Vector2( 3507, 219 )
+
+[node name="ParallaxBackground" parent="." instance=ExtResource( 5 )]
+
+[node name="PauseGame" parent="." instance=ExtResource( 6 )]
