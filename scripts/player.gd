@@ -37,3 +37,23 @@ func _physics_process(delta):
 	rotation += rotation_direction * rotation_speed * delta
 		
 	velocity = move_and_slide(velocity)
+	
+	var collision_info = move_and_collide(velocity * delta)
+	
+	if collision_info:
+		velocity.y -= 50
+		velocity.x = -velocity.x
+		rotation_direction += 1
+		print("DAMAGE!")
+
+	
+	if $"/root/Global".collision_with_ground:
+		collided_with_something()
+		
+func collided_with_something():
+	if velocity.x:
+		velocity.x = -velocity.x / 2
+	if velocity.y:
+		velocity.y = -velocity.y / 2
+	$"/root/Global".collision_with_ground = false
+	print("GETTING HERE?")
